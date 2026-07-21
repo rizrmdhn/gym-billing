@@ -14,7 +14,7 @@ class MemberController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Members/Index', [
+        return Inertia::render('members/Index', [
             'members' => Member::with('membershipPlan')->orderBy('name')->get(),
             'plans' => MembershipPlan::orderBy('name')->get(['id', 'name', 'monthly_price']),
         ]);

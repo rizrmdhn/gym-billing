@@ -17,7 +17,7 @@ class InvoiceController extends Controller
             ? BillingPeriodData::fromArray($request->only("month", "year"))
             : BillingPeriodData::current();
 
-            return Inertia::render("Invoice/Index", [
+            return Inertia::render("invoice/Index", [
                 "invoices" => Invoice::with("member")
                 ->where("period_month", $period->month)
                 ->where("period_year", $period->year)

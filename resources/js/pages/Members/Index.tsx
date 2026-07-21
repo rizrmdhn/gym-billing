@@ -3,7 +3,7 @@ import { useForm } from '@inertiajs/react';
 
 import { useState } from 'react';
 
-export default function Index({ members, plans }) {
+export default function Members({ members, plans }) {
     const [editingId, setEditingId] = useState(null);
 
     const createForm = useForm({

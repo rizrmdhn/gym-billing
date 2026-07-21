@@ -22,6 +22,11 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Paket Membership',
+        href: dashboard(),
+        icon: BookOpen,
+    }
 ];
 
 const footerNavItems: NavItem[] = [

@@ -2,7 +2,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import { useForm } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function Index({ plans }) {
+export default function Plans({ plans }) {
     const [editingId, setEditingId] = useState(null);
 
     const createForm = useForm({ name: '', description: '', monthly_price: '' });
@@ -166,3 +166,6 @@ export default function Index({ plans }) {
         </AuthLayout>
     );
 }
+
+
+

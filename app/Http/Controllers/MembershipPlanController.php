@@ -13,7 +13,7 @@ class MembershipPlanController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Plans/Index', [
+        return Inertia::render('plans/Index', [
             'plans' => MembershipPlan::orderBy('name')->get(),
         ]);
     }

@@ -1,7 +1,7 @@
 import AuthLayout from "@/layouts/auth-layout";
 import {router, useForm} from "@inertiajs/react";
 
-export default function InvoiceIndex({invoices, filters}) {
+export default function Invoice({invoices, filters}) {
     const generateForm = useForm({
         month: filters.month,
         year: filters.year,
