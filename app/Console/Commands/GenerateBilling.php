@@ -11,13 +11,11 @@ use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 
-#[Signature('app:generate-billing')]
-#[Description('Command description')]
+#[Signature('billing:generate')]
+#[Description('Generate billing invoices for a specific month and year.')]
 class GenerateBilling extends Command
 {
 
-    protected $signature = 'billing:generate {--month=} {--year=}';
-    protected $description = 'Generate billing invoices for a specific month and year.';
     /**
      * Execute the console command.
      */

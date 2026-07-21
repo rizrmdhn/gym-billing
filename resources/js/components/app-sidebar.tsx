@@ -14,6 +14,9 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as plan } from "@/routes/plans";
+import { index as member } from "@/routes/members";
+import { index as invoice } from "@/routes/invoices";
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -24,7 +27,17 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Paket Membership',
-        href: dashboard(),
+        href: plan(),
+        icon: BookOpen,
+    },
+    {
+        title: 'Member',
+        href: member(),
+        icon: BookOpen,
+    },
+    {
+        title: 'Invoice',
+        href: invoice(),
         icon: BookOpen,
     }
 ];
