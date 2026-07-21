@@ -23,7 +23,7 @@ class BillingPeriodData
         );
     }
 
-    public static function currnet(): self
+    public static function current(): self
     {
         return new self(month: (int) now()->month, year: (int) now()->year);
     }
