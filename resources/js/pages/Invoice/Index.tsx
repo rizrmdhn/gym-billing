@@ -1,7 +1,7 @@
 import AuthLayout from '@/layouts/auth-layout';
 import { router, useForm } from '@inertiajs/react';
 import { generate as generateInvoices, index as invoicesIndex } from '@/routes/invoices';
-import { store as payInvoice } from '@/actions/App/Http/Controllers/InvoiceController';
+import { store as payInvoice } from '@/actions/App/Http/Controllers/PaymentController';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';

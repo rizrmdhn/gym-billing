@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { format } from "date-fns";
 
 type MembershipPlan = {
     id: number;
@@ -57,7 +58,7 @@ export default function Members({ members, plans }: MembersProps) {
         });
     }
 
-    function submitEdit(e: React.FormEvent<HTMLFormElement>, member: MemberRecord) {
+    function submitEdit(e: SubmitEvent<HTMLFormElement>, member: MemberRecord) {
         e.preventDefault();
         editForm.submit(update(member.id), { onSuccess: () => setEditingId(null) });
     }
@@ -228,7 +229,7 @@ export default function Members({ members, plans }: MembersProps) {
                                                     <td className="px-6 py-4 font-medium">{member.name}</td>
                                                     <td className="px-6 py-4 text-muted-foreground">{member.phone}</td>
                                                     <td className="px-6 py-4">{member.membership_plan?.name ?? '-'}</td>
-                                                    <td className="px-6 py-4 text-muted-foreground">{member.active_until ?? '-'}</td>
+                                                    <td className="px-6 py-4 text-muted-foreground">{member.active_until ? format(new Date(member.active_until), 'dd MMM yyyy') : '-'}</td>
                                                     <td className="px-6 py-4">
                                                         <Badge
                                                             variant={member.status === 'active' ? 'secondary' : 'destructive'}

@@ -11,7 +11,7 @@ use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 
-#[Signature('billing:generate')]
+#[Signature('billing:generate {--month=} {--year=}')]
 #[Description('Generate billing invoices for a specific month and year.')]
 class GenerateBilling extends Command
 {
@@ -54,12 +54,12 @@ class GenerateBilling extends Command
 
 
                 Invoice::create([
-                    'invocie_number' => $this->generateInvoiceNumber($period),
+                    'invoice_number' => $this->generateInvoiceNumber($period),
                     'member_id' => $member->id,
                     'membership_plan_id' => $plan->id,
                     'subtotal' => $subtotal,
-                    'tax' => $tax,
-                    'total' => $total,
+                    'tax_amount' => $tax,
+                    'total_amount' => $total,
                     'period_month' => $period->month,
                     'period_year' => $period->year,
                     'status' => 'unpaid',
@@ -68,6 +68,10 @@ class GenerateBilling extends Command
 
             $created++;
         }
+
+        $this->info("Invoices generated for {$period->month}/{$period->year}: {$created} created, {$skipped} skipped.");
+
+        return self::SUCCESS;
     }
 
     private function generateInvoiceNumber(BillingPeriodData $period): string
